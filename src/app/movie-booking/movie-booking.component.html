@@ -1,0 +1,40 @@
+<div *ngIf="movie" class="booking-container">
+  <h1>Movie: {{ movie.title }}</h1>
+
+  <img [src]="imageUrl" alt="{{ movie.title }}" class="movie-image">
+
+  <p class="price">Price: {{ price }} RSD</p>
+
+  
+  <div class="ticket-quantity">
+    <label for="ticket-count">Number of Tickets:</label>
+    <input 
+      id="ticket-count" 
+      type="number" 
+      [(ngModel)]="ticketCount" 
+      min="1" 
+      max="10" 
+      placeholder="Enter number of tickets" 
+    />
+  </div>
+
+  
+  <div class="row-selection">
+    <label for="row">Select Row:</label>
+    <select id="row" [(ngModel)]="selectedRow">
+      <option value="">Select Row</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+    </select>
+  </div>
+
+  
+  <button mat-button (click)="bookMovie()" [disabled]="!ticketCount || !selectedRow">Confirm Booking</button>
+</div>
+
+<div *ngIf="!movie" class="error">
+  Movie not found.
+</div>

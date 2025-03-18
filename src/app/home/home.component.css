@@ -1,0 +1,148 @@
+.error {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+app-loading {
+  display: block;
+  margin: 20px auto;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-filter input,
+.search-filter select {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-filter input:focus,
+.search-filter select:focus {
+  outline: none;
+  border-color: #162b4a;
+  box-shadow: 0 0 10px rgba(22, 43, 74, 0.3);
+}
+
+.search-filter input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.rating-filter {
+  display: flex;
+  align-items: center;
+}
+
+.rating-filter label {
+  margin-right: 10px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  animation: slideUp 1s ease-in-out;
+}
+
+mat-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px;
+}
+
+mat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+mat-card img {
+  transition: transform 0.3s ease;
+  border-bottom: 2px solid #e0e0e0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+mat-card img:hover {
+  transform: scale(1.05);
+}
+
+mat-card-content {
+  transition: opacity 0.3s ease;
+  padding: 10px;
+}
+
+mat-card:hover mat-card-content {
+  opacity: 0.8;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+button {
+  background-color: transparent;
+  color: #162b4a;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s, background-color 0.3s;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #162b4a;
+  color: white;
+  transform: scale(1.05);
+}

@@ -1,7 +1,31 @@
-<h1>The Words Of The Prophets Are Written On Subway Walls </h1>
-<p>
-    <a routerLink="/">Home</a> <>
-    <a routerLink="/about">About</a>
+<mat-toolbar color="primary">
+  <span><i class="fa-solid fa-film"></i> Movie App</span>
+  <span class="spacer"></span>
 
-</p>
-<router-outlet />
+  <a routerLink="/" mat-button>
+    <i class="fa-solid fa-house"></i>
+    <span class="link-name">Home</span>
+  </a>
+
+  <a routerLink="/login" mat-button *ngIf="!service.getActiveUser()">
+    <i class="fa-solid fa-right-to-bracket"></i>
+    <span class="link-name">Login</span>
+  </a>
+  
+  <button mat-button *ngIf="service.getActiveUser()" (click)="doLogout()">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <span class="link-name">Logout</span>
+  </button>
+
+  <a routerLink="/user" mat-button *ngIf="service.getActiveUser()">
+    <i class="fa-solid fa-user"></i>
+    <span class="link-name">Profile</span>
+  </a>
+
+  <a routerLink="/about" mat-button class="about-btn">
+    <i class="fa-solid fa-circle-info"></i>
+    <span class="link-name">About</span>
+  </a>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

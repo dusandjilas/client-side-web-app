@@ -1,0 +1,30 @@
+<div *ngIf="error" class="error">
+  <p>Error: {{ error }}</p>
+</div>
+
+<div *ngIf="movie" class="movie-details-container">
+
+  <img 
+    class="movie-poster" 
+    [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" 
+    alt="{{ movie.title }}"
+  />
+
+
+  <h1>{{ movie.title }}</h1>
+
+  <div class="movie-info">
+    <p class="genre">Genre: {{ genre }}</p>
+    <p>Duration: {{ duration }} minutes</p>
+    <p>Director: {{ director }}</p>
+    <p>Release Date: {{ releaseDate | date }}</p>
+    <p class="price">Price: {{ price }} RSD</p>
+  </div>
+
+
+  <button mat-button [routerLink]="['/movie', movie.id, 'book']">Book Now</button>
+</div>
+
+<div *ngIf="!movie">
+  <app-loading></app-loading>
+</div>

@@ -1,0 +1,28 @@
+<table mat-table [dataSource]="bookedMovies">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="movieTitle">
+    <th mat-header-cell *matHeaderCellDef> Movie Title </th>
+    <td mat-cell *matCellDef="let element"> {{ element.movieTitle }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"> {{ element.status }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button (click)="markAsWatched(element)">Mark as Watched</button>
+      <button mat-button (click)="removeMovie(element)">Remove</button>
+      <button mat-button (click)="reviewMovie(element)">Write a Review</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
